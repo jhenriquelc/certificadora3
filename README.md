@@ -4,10 +4,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Developing
 
-Once you've created a project and installed dependencies with `pnpm install`, start a development server:
+Once you've created a project and installed dependencies with `pnpm install`, start a development server and database:
 
 ```sh
-npm run dev
+pnpm run db:start
+```
+
+Then, in another terminal:
+
+```sh
+pnpm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
