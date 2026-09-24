@@ -1,0 +1,113 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "pnpm: dev",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "dev"]
+		},
+		{
+			"label": "pnpm: build",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "build"]
+		},
+		{
+			"label": "pnpm: preview",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "preview"]
+		},
+		{
+			"label": "pnpm: prepare",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "prepare"]
+		},
+		{
+			"label": "pnpm: check",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "check"]
+		},
+		{
+			"label": "pnpm: check:watch",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "check:watch"]
+		},
+		{
+			"label": "pnpm: lint",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "lint"]
+		},
+		{
+			"label": "pnpm: format",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "format"]
+		},
+		{
+			"label": "pnpm: test:unit",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "test:unit"]
+		},
+		{
+			"label": "pnpm: test",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "test"]
+		},
+		{
+			"label": "pnpm: storybook",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "storybook"]
+		},
+		{
+			"label": "pnpm: build-storybook",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "build-storybook"]
+		},
+		{
+			"label": "pnpm: db:start",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "db:start"]
+		},
+		{
+			"label": "pnpm: db:push",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "db:push"]
+		},
+		{
+			"label": "pnpm: db:generate",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "db:generate"]
+		},
+		{
+			"label": "pnpm: db:migrate",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "db:migrate"]
+		},
+		{
+			"label": "pnpm: db:studio",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "db:studio"]
+		},
+		{
+			"label": "pnpm: auth:schema",
+			"type": "shell",
+			"command": "pnpm",
+			"args": ["run", "auth:schema"]
+		}
+	]
+}
