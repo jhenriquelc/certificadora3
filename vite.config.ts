@@ -1,6 +1,6 @@
 /// <reference types="vitest/config" />
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
-
 import { playwright } from '@vitest/browser-playwright';
 import adapter from '@sveltejs/adapter-auto';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -14,6 +14,7 @@ const dirname =
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
 	plugins: [
+		tailwindcss(),
 		sveltekit({
 			compilerOptions: {
 				// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
@@ -62,7 +63,13 @@ export default defineConfig({
 
 			{
 				extends: true,
-				plugins: [storybookTest({ configDir: path.join(dirname, '.storybook') })],
+				plugins: [
+					// The plugin will run tests for the stories defined in your Storybook config
+					// See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+					storybookTest({
+						configDir: path.join(dirname, '.storybook')
+					})
+				],
 				test: {
 					name: 'storybook',
 					browser: {
