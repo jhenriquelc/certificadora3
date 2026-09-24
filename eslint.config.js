@@ -16,8 +16,8 @@ export default defineConfig(
 	js.configs.recommended,
 	ts.configs.recommended,
 	svelte.configs.recommended,
-  prettier,
-	storybook.configs.recommended,
+	prettier,
+	storybook.configs['flat/recommended'],
 	svelte.configs.prettier,
 	{
 		languageOptions: { globals: { ...globals.browser, ...globals.node } },
