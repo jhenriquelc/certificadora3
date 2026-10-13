@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -8,14 +9,35 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--color-primary-50: var(--color-blue-50);
-	--color-primary-100: var(--color-blue-100);
-	--color-primary-200: var(--color-blue-200);
-	--color-primary-300: var(--color-blue-300);
-	--color-primary-400: var(--color-blue-400);
-	--color-primary-500: var(--color-blue-500);
-	--color-primary-600: var(--color-blue-600);
-	--color-primary-700: var(--color-blue-700);
-	--color-primary-800: var(--color-blue-800);
-	--color-primary-900: var(--color-blue-900);
+	--font-display: 'Candara', 'Merriweather Sans', sans-serif;
+	--default-font-family: 'Lato', sans-serif;
+	--text-base: 1.2rem;
+	--text-sm: 1rem;
+
+	--color-primary-50: #f6f1fa;
+	--color-primary-100: #eadff3;
+	--color-primary-200: #d5bee7;
+	--color-primary-300: #b996d4;
+	--color-primary-400: #9a6cbc;
+	--color-primary-500: #794ba5;
+	--color-primary-600: #59328d;
+	--color-primary-700: #492775;
+	--color-primary-800: #3a205e;
+	--color-primary-900: #2b1846;
+	--color-primary-950: #1b0e2d;
+
+	--color-brand-purple: #59328d;
+	--color-brand-coral: #bf6169;
+	--color-brand-gold: #ec9e1f;
+}
+
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-display);
+	}
 }
