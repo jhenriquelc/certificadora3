@@ -1,14 +1,37 @@
 services:
   db:
-    image: postgres
-    restart: always
+    image: postgres:18
+    restart: unless-stopped
     ports:
-      - 5432:5432
+      - ${DB_PORT:-5434}:5432
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: local
     volumes:
       - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U root -d local']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Dev server inside a container (optional): docker compose --profile app up
+  app:
+    profiles: [app]
+    build: .
+    ports:
+      - ${APP_PORT:-5173}:5173
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://root:mysecretpassword@db:5432/local
+      ORIGIN: http://localhost:${APP_PORT:-5173}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   pgdata:

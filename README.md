@@ -4,20 +4,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Developing
 
-Once you've created a project and installed dependencies with `pnpm install`, start a development server and database:
+Requisitos: Node 20.19+ (ou 22+), Docker e pnpm (`corepack enable pnpm`).
 
 ```sh
-pnpm run db:start
+pnpm install
+cp .env.example .env   # preencha BETTER_AUTH_SECRET (ex.: openssl rand -base64 32)
 ```
 
-Then, in another terminal:
+### Opção 1: banco no Docker, app local
 
 ```sh
+docker compose up -d db   # Postgres em localhost:5434 (mude com DB_PORT)
+pnpm run db:push          # cria as tabelas
 pnpm run dev
-
-# or start the server and open the app in a new browser tab
-pnpm run dev -- --open
 ```
+
+### Opção 2: tudo no Docker
+
+```sh
+docker compose --profile app up --build
+```
+
+O app fica em http://localhost:5173 (mude com APP_PORT) com hot reload; o schema é aplicado automaticamente ao subir.
 
 ## Building
 

@@ -1,0 +1,8 @@
+node_modules
+.svelte-kit
+build
+storybook-static
+.git
+.env
+.env.*
+!.env.example
