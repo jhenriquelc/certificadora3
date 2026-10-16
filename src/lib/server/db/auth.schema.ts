@@ -11,7 +11,11 @@ export const user = pgTable('user', {
 	updatedAt: timestamp('updated_at')
 		.defaultNow()
 		.$onUpdate(() => /* @__PURE__ */ new Date())
-		.notNull()
+		.notNull(),
+	role: text('role', { enum: ['user', 'admin'] })
+		.default('user')
+		.notNull(),
+	deactivatedAt: timestamp('deactivated_at')
 });
 
 export const session = pgTable(
