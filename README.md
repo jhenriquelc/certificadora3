@@ -30,6 +30,29 @@ docker compose --profile app up --build
 
 O app fica em http://localhost:5173 (mude com APP_PORT) com hot reload. O schema é aplicado automaticamente quando o container sobe.
 
+### Alterações no banco de dados
+
+Use `pnpm db:push` durante o desenvolvimento local quando quiser sincronizar diretamente o
+PostgreSQL com `src/lib/server/db/schema.ts`. Esse comando não cria um histórico de migrações e
+é adequado para bancos locais e descartáveis. Leia as operações exibidas antes de confirmar:
+renomes ambíguos e remoções de tabelas ou colunas podem exigir uma escolha interativa e causar
+perda de dados. Não use `db:push --force` sem revisar o impacto.
+
+Use migrações versionadas quando a alteração precisar ser reproduzida de forma controlada em um
+banco compartilhado, homologação ou produção:
+
+```sh
+pnpm db:generate   # gera os arquivos SQL a partir das mudanças em schema.ts
+# revise os arquivos SQL gerados e inclua-os no controle de versão
+pnpm db:migrate    # aplica no banco as migrações ainda pendentes
+```
+
+`db:migrate` apenas aplica migrações que já foram geradas; ele não compara automaticamente o
+banco com `schema.ts`. Antes de aplicá-las fora do ambiente local, faça backup do banco, revise o
+SQL e teste a migração em um ambiente equivalente. Não misture `db:push` e migrações versionadas
+no mesmo ambiente compartilhado, pois alterações feitas por `push` não ficam registradas no
+histórico de migrações.
+
 ## Qualidade
 
 ```sh

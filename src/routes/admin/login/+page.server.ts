@@ -2,11 +2,12 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import type { PageServerLoad } from './$types';
 import { auth } from '$lib/server/auth';
+import { translateAuthError } from '$lib/server/auth-error';
 import { APIError } from 'better-auth/api';
 
 export const load: PageServerLoad = (event) => {
 	if (event.locals.user) {
-		return redirect(302, '/demo/better-auth');
+		return redirect(302, '/admin');
 	}
 	return {};
 };
@@ -19,6 +20,7 @@ export const actions: Actions = {
 
 		try {
 			await auth.api.signInEmail({
+				headers: event.request.headers,
 				body: {
 					email,
 					password,
@@ -27,12 +29,15 @@ export const actions: Actions = {
 			});
 		} catch (error) {
 			if (error instanceof APIError) {
-				return fail(400, { message: error.message || 'Signin failed' });
+				return fail(400, {
+					message: translateAuthError(error, 'Não foi possível entrar')
+				});
 			}
-			return fail(500, { message: 'Unexpected error' });
+			console.error('Better Auth email sign-in failed:', error);
+			return fail(500, { message: 'Erro inesperado' });
 		}
 
-		return redirect(302, '/demo/better-auth');
+		return redirect(302, '/admin');
 	},
 	signUpEmail: async (event) => {
 		const formData = await event.request.formData();
@@ -51,11 +56,13 @@ export const actions: Actions = {
 			});
 		} catch (error) {
 			if (error instanceof APIError) {
-				return fail(400, { message: error.message || 'Registration failed' });
+				return fail(400, {
+					message: translateAuthError(error, 'Não foi possível criar a conta')
+				});
 			}
-			return fail(500, { message: 'Unexpected error' });
+			return fail(500, { message: 'Erro inesperado' });
 		}
 
-		return redirect(302, '/demo/better-auth');
+		return redirect(302, '/admin');
 	}
 };
