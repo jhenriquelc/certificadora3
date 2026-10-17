@@ -18,7 +18,7 @@ cp .env.example .env   # preencha BETTER_AUTH_SECRET (ex.: openssl rand -base64 
 ```sh
 docker compose up -d db   # Postgres em localhost:5434 (mude com DB_PORT)
 pnpm run db:push          # cria as tabelas
-pnpm run db:seed          # cria o primeiro admin (preencha ADMIN_EMAIL e ADMIN_PASSWORD no .env)
+pnpm run db:seed          # cria o primeiro admin (preencha ADMIN_EMAIL e ADMIN_PASSWORD no .env); rodar de novo reativa a conta e redefine a senha
 pnpm run dev
 ```
 
