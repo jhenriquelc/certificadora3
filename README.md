@@ -4,6 +4,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Stack: SvelteKit 2 + Svelte 5, TypeScript, Tailwind CSS v4 + Flowbite-Svelte, Drizzle ORM + PostgreSQL, Better Auth, Vitest e Storybook.
 
+> **Como executar o projeto:** o [SETUP.md](SETUP.md) tem toda a explicação sobre como executar o projeto. Lá estão as ferramentas e versões usadas, os roteiros para criar o banco de dados, compilar e executar a aplicação, o roteiro de testes e as contas de acesso padrão.
+
 ## Desenvolvimento
 
 Requisitos: Node 20.19+ (ou 22+), Docker e pnpm (`corepack enable pnpm`).
