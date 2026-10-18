@@ -2,13 +2,16 @@
 
 Este roteiro explica como baixar, compilar, executar e testar o site do projeto de extensão Meninas Digitais UTFPR-CP, no estado da branch `entrega-parcial` do repositório [jhenriquelc/certificadora3](https://github.com/jhenriquelc/certificadora3).
 
+Vídeo de instrução: https://drive.google.com/file/d/1bqB-61Olcce1XYSx546IvtNTOz7woQwj/
+
 ## Equipe e objetivo do sistema
 
-**Equipe:** _\[nome da equipe a definir\]_. Integrantes que aparecem no histórico do repositório:
+**Equipe:** Equipe 2. Integrantes que aparecem no histórico do repositório:
 
 - João Henrique L. Corrêa ([@jhenriquelc](https://github.com/jhenriquelc))
-- Juliano ([@JulianoMXM](https://github.com/JulianoMXM))
-- _\[demais integrantes\]_
+- Juliano Moreto Massoca ([@JulianoMXM](https://github.com/JulianoMXM))
+- Pedro Henrique Sauné
+- José Augusto de Barros Ardenghi 
 
 **Objetivo:** dar ao projeto de extensão Meninas Digitais UTFPR-CP um site para divulgar seus eventos e receber inscrições. Visitantes se inscrevem sem criar conta (nome, e-mail e RA). Membros da equipe organizadora, com login, criam e gerenciam os eventos e veem os inscritos. Um administrador cadastra e inativa as contas da equipe.
 
